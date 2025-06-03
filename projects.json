@@ -1,0 +1,22 @@
+[
+  {
+    "id": "solar-panel-mount",
+    "title": "Solar Panel Mounting System",
+    "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
+    "fullDescription": "Designed in SolidWorks, this system features modular components for easy installation and maintenance. The design focuses on structural integrity, material efficiency, and adaptability to various roof pitches. Includes detailed assembly instructions and BOM for manufacturing.",
+    "thumbnail": "assets/images/solar-panel-munt-thumb.jpg",
+    "modelPath": "assets/models/solar_panel_mount.glb",
+    "githubRepo": "https://github.com/your-username/your-repo/tree/main/solar-panel-mount-project",
+    "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
+  },
+  {
+    "id": "solar-panel-munt",
+    "title": "Solar Panel Mounting System",
+    "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
+    "fullDescription": "Designed in SolidWorks, this system features modular components for easy installation and maintenance. The design focuses on structural integrity, material efficiency, and adaptability to various roof pitches. Includes detailed assembly instructions and BOM for manufacturing.",
+    "thumbnail": "assets/images/solar-panel-mount-thumb.jpg",
+    "modelPath": "assets/models/solar_panel_munt.glb",
+    "githubRepo": "https://github.com/your-username/your-repo/tree/main/solar-panel-mount-project",
+    "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
+  }
+]

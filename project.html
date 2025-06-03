@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Your Name</title>
+    <meta name="description" content="View 3D model of a SolidWorks project.">
+
+    <!-- Google Fonts: Poppins (for headings) and Open Sans (for body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google model-viewer CDN -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
+    <style>
+        /* BASIC RESET & TYPOGRAPHY */
+        :root {
+            --primary-accent: #6366F1; /* Modern Indigo */
+            --secondary-accent: #EC4899; /* Vibrant Pink */
+            --background-dark: #0F172A; /* Deep Navy */
+            --card-background: #1E293B; /* Slate */
+            --border-color: #334155; /* Subtle border */
+            --text-color-light: #F8FAFC; /* Bright white */
+            --secondary-text-color: #94A3B8; /* Muted text */
+            --heading-color: #FFFFFF;
+            --box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+            --border-radius: 16px;
+            --transition-speed: 0.3s;
+            --section-padding: 1rem 0;
+            --container-padding: 0 2rem;
+            --gradient-primary: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --gradient-secondary: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-dark);
+            color: var(--text-color-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-image: url('data:image/svg+xml,%3Csvg width="6" height="6" viewBox="0 0 6 6" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23222222" fill-opacity="0.4" fill-rule="evenodd"%3E%3Cpath d="M0 0h3v3H0V0zm3 3h3v3H3V3z"%3E%3C/path%3E%3C/g%3E%3C/svg%3E');
+        }
+
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--heading-color);
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.6rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary-text-color);
+        }
+
+        a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        a:hover {
+            color: var(--secondary-accent);
+        }
+
+        /* CONTAINER & BACK BUTTON */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--container-padding);
+            flex-grow: 1; /* Allows container to take available space */
+        }
+
+        .section-padding {
+            padding: 1rem 0;
+        }
+
+        .back-button-wrapper {
+            padding: 0.3rem var(--container-padding);
+            margin-bottom: 0rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--text-color-light);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* PROJECT DETAILS LAYOUT */
+        .project-header {
+            text-align: center;
+            margin-bottom: 1rem;
+            margin-top: 0rem;
+            position: relative;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+
+        .project-tags span {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .project-tags span:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .project-content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 992px) {
+            .project-content-grid {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        .model-viewer-wrapper {
+            background: var(--card-background);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .model-viewer-wrapper:hover {
+            border-color: var(--primary-accent);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: calc(var(--border-radius) - 5px);
+            animation: fadeIn 1s forwards ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .project-text-content {
+            background: var(--card-background);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            animation: fadeInSlideUp 0.8s forwards ease-out;
+            animation-delay: 0.3s;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-text-content:hover {
+            border-color: var(--primary-accent);
+            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .project-text-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+        }
+
+        .project-text-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .project-text-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--secondary-text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-links a {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            text-align: center;
+            min-width: 150px;
+            font-size: 0.9rem;
+        }
+
+        .project-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            background: var(--gradient-primary);
+            color: var(--text-color-light);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+            color: var(--secondary-text-color);
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer .copyright {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            color: var(--text-color-light);
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        footer .social-links a {
+            color: var(--secondary-text-color);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: var(--primary-accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --container-padding: 0 1.2rem;
+            }
+
+            .project-header h1 {
+                font-size: 1.4rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .project-tags {
+                gap: 0.4rem !important;
+                margin-top: 0.4rem !important;
+            }
+
+            .project-tags span {
+                font-size: 0.65rem !important;
+                padding: 0.2rem 0.6rem !important;
+            }
+
+            .model-viewer-wrapper {
+                min-height: 280px !important;
+                padding: 0.8rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            model-viewer {
+                height: 260px !important;
+            }
+
+            .project-text-content {
+                padding: 1.2rem !important;
+                min-height: 280px !important;
+            }
+
+            .project-text-content h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .project-text-content p {
+                font-size: 0.8rem !important;
+                line-height: 1.5 !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .project-links {
+                margin-top: 1rem !important;
+                gap: 0.6rem !important;
+            }
+
+            .project-links a {
+                padding: 0.7rem 1rem !important;
+                font-size: 0.8rem !important;
+            }
+
+            footer {
+                padding: 0.5rem 0;
+            }
+            
+            footer .container {
+                padding-top: 0.3rem;
+            }
+            
+            footer .copyright {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            footer .social-links {
+                gap: 0.8rem;
+                margin-top: 0.8rem;
+            }
+            
+            footer .social-links a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            :root {
+                --container-padding: 0 1rem;
+            }
+
+            .project-header h1 {
+                font-size: 1.2rem !important;
+                margin-bottom: 0.4rem !important;
+            }
+
+            .project-tags {
+                gap: 0.3rem !important;
+                margin-top: 0.3rem !important;
+            }
+
+            .project-tags span {
+                font-size: 0.6rem !important;
+                padding: 0.15rem 0.5rem !important;
+            }
+
+            .model-viewer-wrapper {
+                min-height: 240px !important;
+                padding: 0.6rem !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            model-viewer {
+                height: 220px !important;
+            }
+
+            .project-text-content {
+                padding: 1rem !important;
+                min-height: 240px !important;
+            }
+
+            .project-text-content h3 {
+                font-size: 1rem !important;
+                margin-bottom: 0.6rem !important;
+            }
+
+            .project-text-content p {
+                font-size: 0.75rem !important;
+                line-height: 1.4 !important;
+                margin-bottom: 0.8rem !important;
+            }
+
+            .project-links {
+                margin-top: 0.8rem !important;
+                gap: 0.5rem !important;
+            }
+
+            .project-links a {
+                padding: 0.6rem 0.8rem !important;
+                font-size: 0.75rem !important;
+            }
+
+            footer {
+                padding: 0.3rem 0;
+            }
+            
+            footer .container {
+                padding-top: 0.2rem;
+            }
+            
+            footer .copyright {
+                font-size: 0.75rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            footer .social-links {
+                gap: 0.6rem;
+                margin-top: 0.6rem;
+            }
+            
+            footer .social-links a {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Loading Spinner */
+        #loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid rgba(99, 102, 241, 0.2);
+            border-top: 4px solid var(--primary-accent);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* Hide spinner once model is loaded */
+        model-viewer[loaded] + #loading-spinner {
+            display: none;
+        }
+
+        /* Model Loading Overlay (from poster slot) */
+        .model-loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            border-radius: inherit;
+            text-align: center;
+            padding: 20px;
+        }
+        .model-loading-overlay h3 {
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: none;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+        }
+        .model-loading-overlay p {
+            font-size: 1rem;
+            opacity: 0.8;
+            color: var(--text-color-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            :root {
+                --section-padding: 4rem;
+                --container-padding: 0 2rem;
+            }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+
+            .project-header h1 { font-size: 3rem; }
+            .project-text-content h3 { font-size: 1.8rem; }
+            .model-viewer-wrapper {
+                min-height: 500px;
+                padding: 1.5rem;
+            }
+            model-viewer {
+                height: 450px;
+            }
+            .project-text-content {
+                padding: 2rem;
+            }
+
+            /* Add padding to prevent overlap with floating button */
+            .container {
+                padding-top: 4rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Add padding to prevent overlap with floating button */
+            .container {
+                padding-top: 4rem;
+            }
+
+            /* Adjust project header spacing */
+            .project-header {
+                margin-top: 0.5rem;
+            }
+
+            /* Adjust floating button position for better visibility */
+            .floating-back-btn {
+                top: 12px;
+                left: 12px;
+                height: 36px;
+                padding: 0 0.8rem;
+            }
+
+            .floating-back-btn i {
+                font-size: 1.1rem;
+            }
+
+            .floating-back-btn .back-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        @keyframes pulseBackButton {
+            0% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+            }
+        }
+
+        @keyframes rippleEffect {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Back Button */
+        .floating-back-btn {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 1200;
+            width: auto;
+            height: 44px;
+            background: var(--gradient-primary);
+            color: #fff;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 1.2rem;
+            box-shadow: 0 8px 24px rgba(99,102,241,0.18);
+            transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+            text-decoration: none;
+            opacity: 0.95;
+            padding: 0 1.2rem 0 1rem;
+            gap: 0.6rem;
+        }
+
+        .floating-back-btn:hover {
+            background: var(--gradient-secondary);
+            color: #fff;
+            box-shadow: 0 12px 32px rgba(99,102,241,0.28);
+            transform: scale(1.05) translateY(-2px);
+            opacity: 1;
+        }
+
+        .floating-back-btn i {
+            pointer-events: none;
+            font-size: 1.3rem;
+        }
+
+        .floating-back-btn .back-label {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-left: 0.2rem;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .floating-back-btn {
+                top: 16px;
+                left: 16px;
+                height: 40px;
+                padding: 0 1rem;
+            }
+
+            .floating-back-btn i {
+                font-size: 1.2rem;
+            }
+
+            .floating-back-btn .back-label {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* Add padding to prevent overlap with floating button */
+            .container {
+                padding-top: 4rem;
+            }
+
+            /* Adjust project header spacing */
+            .project-header {
+                margin-top: 0.5rem;
+            }
+
+            /* Adjust floating button position for better visibility */
+            .floating-back-btn {
+                top: 12px;
+                left: 12px;
+                height: 36px;
+                padding: 0 0.8rem;
+            }
+
+            .floating-back-btn i {
+                font-size: 1.1rem;
+            }
+
+            .floating-back-btn .back-label {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container section-padding">
+        <div class="project-header">
+            <h1 id="projectTitle">Loading Project...</h1>
+            <div id="projectTags" class="project-tags"></div>
+        </div>
+
+        <div class="project-content-grid">
+            <div class="model-viewer-wrapper">
+                <model-viewer
+                    id="modelViewer"
+                    src=""
+                    alt="3D model of project"
+                    ar
+                    ar-modes="webxr quick-look scene-viewer"
+                    camera-controls
+                    touch-action="pan-y"
+                    shadow-intensity="1"
+                    shadow-softness="1"
+                    exposure="1.2"
+                    auto-rotate
+                    auto-rotate-delay="1000"
+                    interaction-prompt="auto"
+                    camera-orbit="0deg 75deg auto"
+                    field-of-view="auto"
+                    min-camera-orbit="auto auto 0.5m"
+                    max-camera-orbit="auto auto 5m"
+                    min-field-of-view="25deg"
+                    max-field-of-view="45deg"
+                    poster="https://via.placeholder.com/600x400/333/666?text=Loading+3D+Model"
+                >
+                    <div slot="poster" class="model-loading-overlay">
+                        <h3>Loading 3D Model...</h3>
+                        <p>(Drag to rotate, scroll or pinch to zoom)</p>
+                    </div>
+                </model-viewer>
+                <div id="loading-spinner"></div>
+            </div>
+            <div class="project-text-content">
+                <h3>About This Project</h3>
+                <p id="projectFullDescription">Loading project details...</p>
+                <div class="project-links">
+                    <a id="githubLink" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">© 2025 KAISER HAMID ADNAN. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://behance.net/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="index.html" class="floating-back-btn" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+        <span class="back-label">Back</span>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('id');
+
+            const projectTitle = document.getElementById('projectTitle');
+            const projectTags = document.getElementById('projectTags');
+            const projectFullDescription = document.getElementById('projectFullDescription');
+            const githubLink = document.getElementById('githubLink');
+            const modelViewer = document.getElementById('modelViewer');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const modelLoadingOverlay = document.querySelector('.model-loading-overlay');
+
+            if (!projectId) {
+                projectTitle.textContent = 'Project Not Found';
+                projectFullDescription.textContent = 'No project ID provided in the URL. Please go back to the portfolio page.';
+                loadingSpinner.style.display = 'none';
+                if (modelLoadingOverlay) modelLoadingOverlay.style.display = 'none';
+                modelViewer.style.display = 'none';
+                return;
+            }
+
+            try {
+                const response = await fetch('projects.json');
+                if (!response.ok) {
+                    console.error(`HTTP error fetching projects.json: status ${response.status} - ${response.statusText}`);
+                    throw new Error(`Failed to load projects.json: ${response.status} ${response.statusText}`);
+                }
+                const projects = await response.json();
+                const project = projects.find(p => p.id === projectId);
+
+                if (project) {
+                    projectTitle.textContent = project.title;
+                    projectTags.textContent = project.tags.map(tag => `#${tag}`).join(' ');
+                    projectFullDescription.textContent = project.fullDescription;
+                    modelViewer.src = project.modelPath;
+
+                    modelViewer.addEventListener('load', () => {
+                        console.log('3D model loaded successfully!');
+                        loadingSpinner.style.display = 'none';
+                        if (modelLoadingOverlay) modelLoadingOverlay.style.display = 'none';
+                        modelViewer.removeAttribute('poster');
+
+                        // Get model dimensions and adjust camera
+                        const modelSize = modelViewer.getDimensions();
+                        const maxDimension = Math.max(modelSize.x, modelSize.y, modelSize.z);
+                        
+                        // Calculate appropriate camera distance based on model size
+                        const cameraDistance = maxDimension * 1.2; // Reduced multiplier for closer view
+                        
+                        // Set camera orbit with calculated distance
+                        modelViewer.cameraOrbit = `0deg 75deg ${cameraDistance}m`;
+                        
+                        // Adjust field of view based on model size
+                        const fov = Math.min(45, Math.max(30, 35 + (maxDimension * 0.5))); // Reduced FOV adjustment
+                        modelViewer.fieldOfView = `${fov}deg`;
+                    });
+
+                    modelViewer.addEventListener('error', (event) => {
+                        console.error('Error loading 3D model:', event);
+                        projectFullDescription.innerHTML = `Failed to load the 3D model (<code>${project.modelPath}</code>). <br>Please check the model file, its path, and ensure it's a valid GLB/GLTF. Check the browser console for more details.`;
+                        loadingSpinner.style.display = 'none';
+                        if (modelLoadingOverlay) modelLoadingOverlay.innerHTML = '<p style="color: red;">Failed to load model. Check console.</p>';
+                    });
+
+                    if (project.githubRepo) {
+                        githubLink.href = project.githubRepo;
+                        githubLink.style.display = 'inline-block';
+                    } else {
+                        githubLink.style.display = 'none';
+                    }
+
+                } else {
+                    projectTitle.textContent = 'Project Not Found';
+                    projectFullDescription.textContent = `The project with ID "${projectId}" could not be found in 'projects.json'.`;
+                    loadingSpinner.style.display = 'none';
+                    if (modelLoadingOverlay) modelLoadingOverlay.style.display = 'none';
+                    modelViewer.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error loading project data:', error);
+                projectTitle.textContent = 'Error Loading Project Details';
+                projectFullDescription.textContent = 'An error occurred while fetching project data. Please try again later. Ensure `projects.json` exists and is valid. See console for more details.';
+                loadingSpinner.style.display = 'none';
+                if (modelLoadingOverlay) modelLoadingOverlay.style.display = 'none';
+                modelViewer.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
