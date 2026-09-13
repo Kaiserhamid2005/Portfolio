@@ -10,6 +10,16 @@
     "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
   },
   {
+    "id": "Flanged Elbow.glb",
+    "title": "3D CAD Model of 90° Pipe Elbow with Flanges",
+    "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
+    "fullDescription": "This project involves the design and visualization of a 90-degree pipe elbow with square flanges on both ends, created using CAD software. The model demonstrates a common mechanical component used in fluid transport systems such as plumbing, HVAC, and industrial piping. Each flange includes four bolt holes for secure attachment to other pipes or system components. The design highlights practical engineering applications, showcasing how CAD tools are used to create precise mechanical parts for real-world installations.",
+    "thumbnail": "assets/images/solar-panel-munt-thumb.jpg",
+    "modelPath": "assets/models/Flanged Elbow.glb",
+    "githubRepo": "https://github.com/your-username/your-repo/tree/main/Flanged Elbow.glb",
+    "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
+  },
+  {
     "id": "solar-panel-munt",
     "title": "Solar Panel Mounting System",
     "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
