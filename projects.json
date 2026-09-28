@@ -1,22 +1,142 @@
 [
   {
-    "id": "solar-panel-mount",
-    "title": "Solar Panel Mounting System",
-    "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
-    "fullDescription": "Designed in SolidWorks, this system features modular components for easy installation and maintenance. The design focuses on structural integrity, material efficiency, and adaptability to various roof pitches. Includes detailed assembly instructions and BOM for manufacturing.",
-    "thumbnail": "assets/images/solar-panel-munt-thumb.jpg",
-    "modelPath": "assets/models/solar_panel_mount.glb",
-    "githubRepo": "https://github.com/your-username/your-repo/tree/main/solar-panel-mount-project",
-    "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
+    "id": "four-cylinder-engine",
+    "title": "Four-Cylinder Engine Assembly",
+    "description": "Kinematic 4-cylinder engine assembly featuring crankshaft, connecting rods, and pistons modeled in SolidWorks.",
+    "fullDescription": "A comprehensive mechanical assembly of a 4-cylinder internal combustion engine designed in SolidWorks. Includes articulated crankshaft geometry with counterweights, precision connecting rods, wrist pins, and pistons designed with accurate mechanical clearances for dynamic kinematics simulation.",
+    "thumbnail": "assets/images/four-cylinder-engine-thumb.jpg",
+    "modelPath": "assets/models/Four_Cylinder_Engine.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Automotive", "Kinematics", "Engine Design", "Assembly"]
   },
   {
-    "id": "solar-panel-munt",
-    "title": "Solar Panel Mounting System",
-    "description": "A robust and adjustable mounting solution for residential solar panels, optimized for wind resistance.",
-    "fullDescription": "Designed in SolidWorks, this system features modular components for easy installation and maintenance. The design focuses on structural integrity, material efficiency, and adaptability to various roof pitches. Includes detailed assembly instructions and BOM for manufacturing.",
-    "thumbnail": "assets/images/solar-panel-mount-thumb.jpg",
-    "modelPath": "assets/models/solar_panel_munt.glb",
-    "githubRepo": "https://github.com/your-username/your-repo/tree/main/solar-panel-mount-project",
-    "tags": ["SolidWorks", "CAD", "Mechanical Design", "FEA"]
+    "id": "bearing-project",
+    "title": "Deep Groove Ball Bearing",
+    "description": "Precision industrial deep groove ball bearing assembly with inner ring, outer ring, balls, and retainer cage.",
+    "fullDescription": "Engineered in SolidWorks for high-speed radial loads. Features standardized boundary dimensions, raceway groove radii, contact angle optimization, and a brass/polymer ball separator cage.",
+    "thumbnail": "assets/images/bearing-thumb.jpg",
+    "modelPath": "assets/models/Bearing_Project.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Mechanical Design", "Bearings", "Machine Elements"]
+  },
+  {
+    "id": "sprocket",
+    "title": "Industrial Roller Chain Sprocket",
+    "description": "Heavy-duty power transmission roller chain drive sprocket with ANSI/ISO tooth profile and keyed shaft hub.",
+    "fullDescription": "Precision power transmission sprocket designed with standard ANSI/ISO roller chain tooth profiles, weight-reduction relief pockets, and a keyed shaft hub for torque transfer in mechanical drive trains.",
+    "thumbnail": "assets/images/sprocket-thumb.jpg",
+    "modelPath": "assets/models/Sprocket.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Power Transmission", "Machine Design", "Gears"]
+  },
+  {
+    "id": "flanged-elbow",
+    "title": "90° Flanged Pipe Elbow",
+    "description": "High-pressure ASME-standard 90-degree flanged pipe elbow with raised gasket face and 8-bolt flange patterns.",
+    "fullDescription": "ASME B16.5 compliant industrial piping fitting designed for fluid and gas transport systems. Features uniform wall thickness throughout the sweep radius, standard bolt circles, and raised sealing faces.",
+    "thumbnail": "assets/images/flanged-elbow-thumb.jpg",
+    "modelPath": "assets/models/Flanged_Elbow.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Piping", "Pressure Vessels", "Industrial CAD"]
+  },
+  {
+    "id": "4-way-cross-pipe",
+    "title": "4-Way Cross / X-Pipe Fitting",
+    "description": "Precision 4-way intersecting pipe cross manifold fitting engineered for hydraulic and exhaust systems.",
+    "fullDescription": "Multidirectional fluid distribution fitting modeled in SolidWorks. Features internal blend radii designed to minimize turbulence and maintain pressure equilibrium across intersecting fluid lines.",
+    "thumbnail": "assets/images/pipe-cross-thumb.jpg",
+    "modelPath": "assets/models/4-way_cross_or_an_x-pipe.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Hydraulics", "Piping", "Manifolds"]
+  },
+  {
+    "id": "pedestal-mount",
+    "title": "Industrial Pedestal Mount",
+    "description": "Heavy-duty cast pedestal bearing mount with foundation mounting slots and structural reinforcement ribs.",
+    "fullDescription": "Rigid casting pillow block pedestal mount designed to support rotating shaft bearings under dynamic vibration and high loads. Features slotted base bolt holes for alignment adjustment and lubrication fittings.",
+    "thumbnail": "assets/images/pedestal-mount-thumb.jpg",
+    "modelPath": "assets/models/Pedestal_Mount.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Structural Design", "Castings", "Heavy Machinery"]
+  },
+  {
+    "id": "ouver-forming-tool",
+    "title": "Sheet Metal Louver Forming Tool",
+    "description": "Custom SolidWorks sheet metal punch and die library feature for stamping ventilation louvers.",
+    "fullDescription": "Specialized sheet metal forming tool modeled with cutting lip and progressive emboss geometry to punch ventilation louvers into sheet enclosures without material shearing or tearing.",
+    "thumbnail": "assets/images/pedestal-mount-thumb.jpg",
+    "modelPath": "assets/models/Ouver_Forming_Tool.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Sheet Metal", "Tooling & Die", "Manufacturing"]
+  },
+  {
+    "id": "tape-dispenser",
+    "title": "Ergonomic Desktop Tape Dispenser",
+    "description": "Consumer product design featuring an ergonomic weighted base, core-cavity parting lines, and tape roll spindle.",
+    "fullDescription": "A complete consumer product development model designed for plastic injection molding. Features balanced wall thickness, draft angles, snap-in tape spool, and an integrated serrated cutting blade.",
+    "thumbnail": "assets/images/bearing-thumb.jpg",
+    "modelPath": "assets/models/Tape_Dispenser.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Product Design", "Injection Molding", "Consumer Products"]
+  },
+  {
+    "id": "smart-led-light-bulb",
+    "title": "Smart LED Light Bulb Housing",
+    "description": "Consumer electronics enclosure with aluminum heatsink cooling fins, polycarbonate diffuser dome, and E27 base.",
+    "fullDescription": "Thermal-optimized IoT light bulb housing modeled in SolidWorks. Features radial thermal management fins, snap-fit optical diffuser, flame-retardant driver housing, and standard threaded lamp base.",
+    "thumbnail": "assets/images/four-cylinder-engine-thumb.jpg",
+    "modelPath": "assets/models/Smart_Led_Light_Bulb.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Consumer Electronics", "Thermal Management", "Lighting"]
+  },
+  {
+    "id": "slotted-hollow-cylinder",
+    "title": "Slotted Hollow Cylinder",
+    "description": "Precision-machined tubular sleeve with alternating axial expansion slots for collet clamping applications.",
+    "fullDescription": "Precision CNC-machined cylindrical component featuring alternating radial expansion slots. Engineered for uniform clamping force distribution and flexible pneumatic/hydraulic sleeve applications.",
+    "thumbnail": "assets/images/pipe-cross-thumb.jpg",
+    "modelPath": "assets/models/Slotted_Hollow_Cylinder.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Precision Machining", "CNC", "Tooling"]
+  },
+  {
+    "id": "spiral-staircase",
+    "title": "Parametric Spiral Staircase",
+    "description": "Architectural helical staircase designed around a central structural column with cantilevered steps.",
+    "fullDescription": "A mathematically defined helical staircase designed in SolidWorks. Features parametric tread rise-and-run spacing complying with structural standards, continuous outer handrail sweep, and modular assembly.",
+    "thumbnail": "assets/images/sprocket-thumb.jpg",
+    "modelPath": "assets/models/Spiral_Staircase.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Structural Engineering", "Parametric CAD", "Architecture"]
+  },
+  {
+    "id": "interlocked-mobius-ring",
+    "title": "Interlocked Möbius Rings",
+    "description": "Complex geometric topological sculpture demonstrating advanced 3D curve surfacing and continuous tangency.",
+    "fullDescription": "Advanced surface modeling project in SolidWorks demonstrating complex 3D sketches, projected guide curves, and swept curvature continuity (G2) for an interconnected non-orientable Möbius strip system.",
+    "thumbnail": "assets/images/bearing-thumb.jpg",
+    "modelPath": "assets/models/Interlocked_Mobius_Ring.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Advanced Surfacing", "Topology", "Geometric Modeling"]
+  },
+  {
+    "id": "apple-logo",
+    "title": "Apple 3D Emblem",
+    "description": "Precision geometric 3D emblem modeling demonstrating Golden Ratio arc profiles and drafted beveled chamfers.",
+    "fullDescription": "A clean 3D CAD modeling exercise in SolidWorks focusing on tangency control, golden ratio arc fillets, precision sketch constraints, and brushed metallic edge beveling.",
+    "thumbnail": "assets/images/pedestal-mount-thumb.jpg",
+    "modelPath": "assets/models/Apple_Logo.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Product Modeling", "Sketch Constraints", "Surfacing"]
+  },
+  {
+    "id": "hydraulic-cylinder",
+    "title": "Heavy-Duty Hydraulic Cylinder",
+    "description": "Industrial high-pressure hydraulic cylinder actuator with piston rod, barrel, and clevis mounting.",
+    "fullDescription": "Heavy-duty industrial hydraulic actuator designed in SolidWorks for fluid power systems. Features honed cylinder barrel, hard-chrome piston rod, seal packaging, and clevis mounting ears for heavy machinery applications.",
+    "thumbnail": "assets/images/flanged-elbow-thumb.jpg",
+    "modelPath": "assets/models/Cylinder.glb",
+    "githubRepo": "https://github.com/Kaiserhamid2005",
+    "tags": ["SolidWorks", "Hydraulics", "Fluid Power", "Actuators", "Machinery"]
   }
 ]
