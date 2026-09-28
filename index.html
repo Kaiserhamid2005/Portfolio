@@ -2262,7 +2262,7 @@
         }
       } catch (error) {
         statusDiv.className = "form-status error";
-        statusDiv.textContent = `Error: ${error.message || "Failed to send message. Please try again."`;
+        statusDiv.textContent = `Error: ${error.message || "Failed to send message. Please try again."}`;
         console.error("Contact form error:", error);
       } finally {
         submitBtn.disabled = false;
